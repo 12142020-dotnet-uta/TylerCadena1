@@ -1,12 +1,9 @@
-﻿using System;
+using System;
 
-namespace HelloWorldDemo
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+namespace HelloWorldDemo {
+    class Program {
+        static void Main(string[] args) {
+            Console.WriteLine("Hello, world!");
         }
     }
 }
