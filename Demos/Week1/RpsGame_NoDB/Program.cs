@@ -23,13 +23,13 @@ namespace RpsGame_NoDB {
 			while (playerMove == 0) {
 				ConsoleKeyInfo k = Console.ReadKey();
 				switch (k.KeyChar) {
-					case '1':
+					case '1': // Rock
 						playerMove = 1;
 						break;
-					case '2':
+					case '2': // Paper
 						playerMove = 2;
 						break;
-					case '3':
+					case '3': // Scissors
 						playerMove = 3;
 						break;
 					default:
@@ -57,21 +57,21 @@ namespace RpsGame_NoDB {
 					case 1: // Rock
 						if (opponentMove == 2) {
 							Console.Write("Paper beats rock! You Lose!\n\n");
-						} else if (opponentMove == 3) {
+						} else /* if (opponentMove == 3) */ {
 							Console.Write("Rock beats scissors! You Win!\n\n");
 						}
 						break;
 					case 2: // Paper
 						if (opponentMove == 1) {
 							Console.Write("Paper beats rock! You Win!\n\n");
-						} else if (opponentMove == 3) {
+						} else /* if (opponentMove == 3) */ {
 							Console.Write("Scissors beats paper! You Lose!\n\n");
 						}
 						break;
 					case 3: // Scissors
 						if (opponentMove == 1) {
 							Console.Write("Rock beats scissors! You Lose!\n\n");
-						} else if (opponentMove == 2) {
+						} else /* if (opponentMove == 2) */ {
 							Console.Write("Scissors beats paper! You Win!\n\n");
 						}
 						break;
