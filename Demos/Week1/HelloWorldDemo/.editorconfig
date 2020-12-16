@@ -10,7 +10,7 @@ tab_width = 4
 indent_size = 4
 indent_style = tab
 
-[*.{yaml,yml}]
+[*.{yaml,yml,csproj}]
 tab_width = 2
 indent_size = 2
 indent_style = space
