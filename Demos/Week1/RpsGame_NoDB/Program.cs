@@ -2,6 +2,7 @@ using System;
 
 namespace RpsGame_NoDB {
 	internal class Program {
+		// Self-explainatory
 		public static string GetMoveName(int move) {
 			switch (move) {
 				case 1: return "Rock";
