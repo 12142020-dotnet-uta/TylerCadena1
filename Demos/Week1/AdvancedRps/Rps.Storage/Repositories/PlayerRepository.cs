@@ -9,5 +9,8 @@ namespace Rps.Storage.Repository {
 		public bool ExistsByHandle(string handle) {
 			return Context.Set<Player>().Any(p => p.Handle == handle);
 		}
+		public Player GetByHandleAndPassword(string handle, string password) {
+			return Context.Set<Player>().SingleOrDefault(p => p.Handle == handle && p.Password == password);
+		}
 	}
 }
