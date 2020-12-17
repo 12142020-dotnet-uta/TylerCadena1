@@ -11,7 +11,7 @@ namespace Rps.Local {
 		Scissors = 3
 	}
 	internal class Program {
-		private static readonly ConsoleService db = new ConsoleService();
+		private static readonly LocalService DB = new LocalService();
 		public static Move GetMove(Player player) {
 			Move result = Move.Invalid;
 			if (player.Computer) {
@@ -19,19 +19,19 @@ namespace Rps.Local {
 				result = (Move)rngsus.Next(1, 3);
 			}
 			while (result == Move.Invalid) {
-				Console.WriteLine($"{player.Handle}, choose your move:");
+				Console.WriteLine($"{player.Handle}, choose your move: ");
 				Console.WriteLine("1 - Rock");
 				Console.WriteLine("2 - Paper");
 				Console.WriteLine("3 - Scissors");
 				ConsoleKeyInfo k = Console.ReadKey(true);
-				switch (k.KeyChar) {
-				case '1':
+				switch (k.Key) {
+				case ConsoleKey.D1:
 					result = Move.Rock;
 					break;
-				case '2':
+				case ConsoleKey.D2:
 					result = Move.Paper;
 					break;
-				case '3':
+				case ConsoleKey.D3:
 					result = Move.Scissors;
 					break;
 				default:
@@ -108,7 +108,7 @@ namespace Rps.Local {
 				// Run Game
 				Console.WriteLine("Continue playing? (Y/N)");
 				ConsoleKeyInfo k = Console.ReadKey(true);
-				if (k.KeyChar != 'y') break;
+				if (k.Key != ConsoleKey.Y) break;
 			}
 			Console.WriteLine("Goodbye!");
 		}
