@@ -1,5 +1,5 @@
 
-namespace Rps.Domain.Interfaces {
+namespace Rps.Storage.Interfaces {
 	public interface IModel {
 		int GetID();
 	}

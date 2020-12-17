@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using Rps.Domain.Abstracts;
 using Rps.Storage.Interfaces;
-using Rps.Storage.Contexts;
 
 namespace Rps.Storage.Abstracts {
 	public abstract class ARepository<T> : IRepository<T> where T : AModel {
-		protected MainContext Context;
-		public ARepository(MainContext context) {
+		protected AContext Context;
+		public ARepository(AContext context) {
 			Context = context;
 		}
-		public abstract List<T> All();
-		public abstract T Get(int ID);
+		public virtual List<T> All() {
+			return Context.Set<T>().ToList();
+		}
+		public virtual T Get(int ID) {
+			return Context.Set<T>().SingleOrDefault(m => m.GetID() == ID);
+		}
 		public virtual bool Post(T model) {
 			Context.Set<T>().Add(model);
 			return Context.SaveChanges() >= 1;

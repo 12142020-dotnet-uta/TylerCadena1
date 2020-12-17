@@ -1,26 +1,25 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-using Rps.Domain.Abstracts;
+using Rps.Storage.Abstracts;
 
-namespace Rps.Domain.Models {
+namespace Rps.Storage.Models {
 	public class Round : AModel {
 		[Key]
-		public int ID { get; set; }
+		public int RoundID { get; set; }
 		[Required]
 		public DateTime StartDate { get; set; }
 		[Required]
 		public DateTime EndDate { get; set; }
-		[Required]
+		[ForeignKey("Winner")]
 		public int WinnerID { get; set; }
-		[Required]
-		public int LoserID { get; set; }
-#region NAVIGATIONAL PROPERTIES
 		public Player Winner { get; set; }
+		[ForeignKey("Loser")]
+		public int LoserID { get; set; }
 		public Player Loser { get; set; }
-#endregion // NAVIGATIONAL PROPERTIES
 		public override int GetID() {
-			return ID;
+			return RoundID;
 		}
 	}
 }

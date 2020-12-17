@@ -2,24 +2,31 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using Rps.Domain.Abstracts;
+using Rps.Storage.Abstracts;
 
-namespace Rps.Domain.Models {
+namespace Rps.Storage.Models {
 	public class Player : AModel {
 		[Key]
-		public int ID { get; set; }
+		public int PlayerID { get; set; }
 		[Required]
 		public string Handle { get; set; }
 		[Required]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
 		public bool Computer { get; set; }
-		[ForeignKey("WinnerID")]
-		public ICollection<Round> Wins { get; set; }
-		[ForeignKey("LoserID")]
-		public ICollection<Round> Losses { get; set; }
 		public override int GetID() {
-			return ID;
+			return PlayerID;
+		}
+		public static Player[] GenerateSeededData() {
+			Player[] players = new Player[] {
+				new Player() {
+					PlayerID = 1,
+					Handle = "CPU",
+					Password = "CPU",
+					Computer = true
+				}
+			};
+			return players;
 		}
 	}
 }
