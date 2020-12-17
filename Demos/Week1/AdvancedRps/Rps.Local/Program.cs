@@ -151,12 +151,12 @@ namespace Rps.Local {
 			string password = ReadPasswordFromInput();
 
 			Player player = DB.Players.GetByHandleAndPassword(handle, password);
-			if (player == null) {
-				Console.WriteLine("Either your handle or password were wrong.");
-			} else {
+			if (player != null) {
 				Console.WriteLine($"Welcome back, {player.Handle}!");
+				return player;
 			}
-			return player;
+			Console.WriteLine("Either your handle or password were wrong.");
+			return null;
 		}
 		public static void Main(string[] args) {
 			Console.WriteLine("Welcome to Rock-Paper-Scissors Advanced!\n");
