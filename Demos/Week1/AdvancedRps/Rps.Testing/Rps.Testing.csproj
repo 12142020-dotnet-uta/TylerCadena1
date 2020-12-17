@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rps.Storage\Rps.Storage.csproj" />
-    <ProjectReference Include="..\Rps.Game\Rps.Game.csproj" />
+    <ProjectReference Include="..\Rps.Local\Rps.Local.csproj" />
   </ItemGroup>
 
 </Project>
