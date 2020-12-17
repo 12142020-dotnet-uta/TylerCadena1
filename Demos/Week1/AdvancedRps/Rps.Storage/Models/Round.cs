@@ -12,6 +12,8 @@ namespace Rps.Storage.Models {
 		public DateTime StartDate { get; set; }
 		[Required]
 		public DateTime EndDate { get; set; }
+		[Required]
+		public bool Draw { get; set; }
 		[ForeignKey("Winner")]
 		public int WinnerID { get; set; }
 		public Player Winner { get; set; }
