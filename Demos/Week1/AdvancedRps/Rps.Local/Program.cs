@@ -23,8 +23,7 @@ namespace Rps.Local {
 				Console.WriteLine("1 - Rock");
 				Console.WriteLine("2 - Paper");
 				Console.WriteLine("3 - Scissors");
-				ConsoleKeyInfo k = Console.ReadKey(true);
-				switch (k.Key) {
+				switch (Console.ReadKey(true).Key) {
 				case ConsoleKey.D1:
 					result = Move.Rock;
 					break;
@@ -120,7 +119,7 @@ namespace Rps.Local {
 			}
 			return password;
 		}
-		public static Player Register() {
+		public static Player RegisterPlayer() {
 			Console.Write("What's your handle gonna be?");
 			string handle = "";
 			while (handle.Length == 0) {
@@ -143,7 +142,7 @@ namespace Rps.Local {
 			Console.WriteLine("Something went wrong! Sorry.");
 			return null;
 		}
-		public static Player Login() {
+		public static Player LoginPlayer() {
 			Console.WriteLine("What's your handle?");
 			string handle = Console.ReadLine();
 
@@ -158,13 +157,53 @@ namespace Rps.Local {
 			Console.WriteLine("Either your handle or password were wrong.");
 			return null;
 		}
-		public static void Main(string[] args) {
+		public static bool CanLogOut(Player one, Player two) {
+			if (one != null) {
+				return true;
+			}
+			if (two != null) {
+				return !two.Computer;
+			}
+			return false;
+		}
+		public static void Main() {
+			Player one = null;
+			Player two = DB.Players.GetComputerPlayer();
 			Console.WriteLine("Welcome to Rock-Paper-Scissors Advanced!\n");
-			while (true) {
-				// Run Game
-				Console.WriteLine("Continue playing? (Y/N)");
-				ConsoleKeyInfo k = Console.ReadKey(true);
-				if (k.Key != ConsoleKey.Y) break;
+			Console.WriteLine("[Main Menu]");
+			Console.WriteLine("1 - Register");
+			if (one != null) {
+				Console.WriteLine("2 - Login");
+			} else {
+				Console.WriteLine("2 - Logout");
+			}
+			Console.WriteLine("3 - Play");
+			Console.WriteLine("4 - Quit");
+
+			bool done = false;
+			while (!done) {
+				switch (Console.ReadKey(true).Key) {
+				case ConsoleKey.D1:
+					one = RegisterPlayer();
+					break;
+				case ConsoleKey.D2:
+					one = LoginPlayer();
+					break;
+				case ConsoleKey.D3:
+					if (one != null) {
+						Round round = RunRound(one, two);
+						DB.Rounds.Post(round);
+					} else {
+						Console.WriteLine("You need an account first!");
+					}
+					break;
+				case ConsoleKey.D4:
+					done = true;
+					break;
+				default:
+					Console.WriteLine("Invalid key pressed!");
+					break;
+				}
 			}
 			Console.WriteLine("Goodbye!");
 		}

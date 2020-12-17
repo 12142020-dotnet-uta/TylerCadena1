@@ -12,5 +12,8 @@ namespace Rps.Storage.Repository {
 		public Player GetByHandleAndPassword(string handle, string password) {
 			return Context.Set<Player>().SingleOrDefault(p => p.Handle == handle && p.Password == password);
 		}
+		public Player GetComputerPlayer() {
+			return Context.Set<Player>().SingleOrDefault(p => p.Computer);
+		}
 	}
 }
