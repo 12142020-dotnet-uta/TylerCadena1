@@ -8,9 +8,8 @@ namespace Janken.Domain.Contexts {
 		private DbSet<Choice> Choices;
 		private DbSet<Round> Rounds;
 		private DbSet<Match> Matches;
-		protected override void OnConfiguring(DbContextOptionsBuilder builder) {
-			builder.UseSqlServer(@"server=localhost,1433;database=jankendb;user id=sa;password=Password12345;");
-		}
+		public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) {}
+		public DatabaseContext() {}
 		protected override void OnModelCreating(ModelBuilder builder) {
 			Player[] players = Player.GenerateSeededData();
 			builder.Entity<Player>().HasData(players);

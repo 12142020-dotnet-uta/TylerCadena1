@@ -5,9 +5,9 @@ using Janken.Runtime.Services;
 
 namespace Janken.Runtime {
 	internal class Program {
-		private static readonly DataService Db = new DataService();
-		private static readonly ChoiceService Rng = new ChoiceService();
-		public static ChoiceType RunChoice(Player player) {
+		static private readonly DataService Db = new DataService();
+		static private readonly ChoiceService Rng = new ChoiceService();
+		static private ChoiceType RunChoice(Player player) {
 			if (player.Computer) {
 				return Rng.GetChoice();
 			}
@@ -34,7 +34,7 @@ namespace Janken.Runtime {
 			}
 			return result;
 		}
-		public static Round RunRound(Player playerOne, Player playerTwo) {
+		static private Round RunRound(Player playerOne, Player playerTwo) {
 			Choice choiceOne = Db.Choices.Get(RunChoice(playerOne));
 			Choice choiceTwo = Db.Choices.Get(RunChoice(playerTwo));
 			Console.WriteLine("\"{0}\" chose {1}!", playerOne.Handle, choiceOne.Name);
@@ -49,7 +49,7 @@ namespace Janken.Runtime {
 			}
 			return result;
 		}
-		public static void PlayGame(Player playerOne, Player playerTwo) {
+		static private void PlayGame(Player playerOne, Player playerTwo) {
 			Match match = new Match(playerOne, playerTwo);
 			match.StartTime = DateTime.Now;
 			while (true) {
@@ -88,7 +88,7 @@ namespace Janken.Runtime {
 			}
 			Db.Matches.Create(match);
 		}
-		public static string ReadPassword() {
+		static private string ReadPassword() {
 			string password = "";
 			while (true) {
 				ConsoleKeyInfo k = Console.ReadKey(true);
@@ -106,7 +106,7 @@ namespace Janken.Runtime {
 			}
 			return password;
 		}
-		public static Player LoginPlayer() {
+		static private Player LoginPlayer() {
 			Console.WriteLine("What's your handle?");
 			string handle = Console.ReadLine();
 			string password = ReadPassword();
@@ -118,7 +118,7 @@ namespace Janken.Runtime {
 			Console.WriteLine("Either your handle or your password are wrong!");
 			return Db.Players.GetComputer();
 		}
-		public static void RegisterPlayer() {
+		static private void RegisterPlayer() {
 			Console.Write("What's your handle gonna be?");
 			string handle = "";
 			while (handle.Length == 0) {
@@ -137,7 +137,7 @@ namespace Janken.Runtime {
 				Console.WriteLine("Something went wrong! Sorry!");
 			}
 		}
-		private static void Main(string[] args) {
+		static public void Main(string[] args) {
 			Player playerOne = Db.Players.GetComputer();
 			Player playerTwo = playerOne;
 			bool done = false;
