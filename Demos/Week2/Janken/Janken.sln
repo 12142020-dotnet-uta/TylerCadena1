@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janken.Runtime", "Janken.Runtime\Janken.Runtime.csproj", "{A1685DFF-DB46-429F-A976-C3A363CCD1DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janken.Testing", "Janken.Testing\Janken.Testing.csproj", "{EFE58B98-9596-4FA0-861C-C338E9F5F297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Janken.Domain", "Janken.Domain\Janken.Domain.csproj", "{C2F08582-D28D-4AC3-95F4-142917002D4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +46,17 @@ Global
 		{EFE58B98-9596-4FA0-861C-C338E9F5F297}.Release|x64.Build.0 = Release|Any CPU
 		{EFE58B98-9596-4FA0-861C-C338E9F5F297}.Release|x86.ActiveCfg = Release|Any CPU
 		{EFE58B98-9596-4FA0-861C-C338E9F5F297}.Release|x86.Build.0 = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|x64.Build.0 = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Debug|x86.Build.0 = Debug|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|x64.ActiveCfg = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|x64.Build.0 = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|x86.ActiveCfg = Release|Any CPU
+		{C2F08582-D28D-4AC3-95F4-142917002D4F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
