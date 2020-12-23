@@ -1,6 +1,6 @@
 using System;
 
-using Janken.Runtime.Models;
+using Janken.Domain.Models;
 using Janken.Runtime.Services;
 
 namespace Janken.Runtime {

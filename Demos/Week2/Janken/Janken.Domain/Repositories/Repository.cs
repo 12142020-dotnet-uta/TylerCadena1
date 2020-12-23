@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using Janken.Runtime.Contexts;
-using Janken.Runtime.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Janken.Runtime.Repositories {
+using Janken.Domain.Models;
+
+namespace Janken.Domain.Repositories {
 	public abstract class Repository<T> where T : Model {
-		protected DatabaseContext Db;
-		public Repository(DatabaseContext db) {
+		protected DbContext Db;
+		public Repository(DbContext db) {
 			Db = db;
 		}
 		public virtual List<T> All() {

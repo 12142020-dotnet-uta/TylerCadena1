@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Janken.Runtime.Models {
+namespace Janken.Domain.Models {
 	public class Match : Model {
 		[Key]
 		public Guid MatchId { get; set; } = Guid.NewGuid();

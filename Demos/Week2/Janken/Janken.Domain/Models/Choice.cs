@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Janken.Runtime.Models {
+namespace Janken.Domain.Models {
 	public enum ChoiceType {
 		Invalid = 0,
 		Rock = 1,

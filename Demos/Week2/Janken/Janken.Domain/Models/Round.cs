@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Janken.Runtime.Models {
+namespace Janken.Domain.Models {
 
 	public class Round : Model {
 		[Key]

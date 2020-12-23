@@ -1,11 +1,12 @@
 using System.Linq;
 
-using Janken.Runtime.Contexts;
-using Janken.Runtime.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Janken.Runtime.Repositories {
+using Janken.Domain.Models;
+
+namespace Janken.Domain.Repositories {
 	public class ChoiceRepository : Repository<Choice> {
-		public ChoiceRepository(DatabaseContext db) : base(db) {}
+		public ChoiceRepository(DbContext db) : base(db) {}
 		public Choice Get(ChoiceType type) {
 			int v = (int)type;
 			return Db.Set<Choice>().Single(c => c.Value == v);

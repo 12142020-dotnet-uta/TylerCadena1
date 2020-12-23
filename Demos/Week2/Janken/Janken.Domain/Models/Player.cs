@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Janken.Runtime.Models {
+namespace Janken.Domain.Models {
 	public class Player : Model {
 		[Key]
 		public Guid PlayerId { get; set; } = Guid.NewGuid();

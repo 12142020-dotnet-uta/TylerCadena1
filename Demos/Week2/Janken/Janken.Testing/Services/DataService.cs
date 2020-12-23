@@ -1,7 +1,7 @@
 using Janken.Domain.Contexts;
 using Janken.Domain.Repositories;
 
-namespace Janken.Runtime.Services {
+namespace Janken.Testing.Services {
 	public class DataService {
 		private DatabaseContext Db;
 		public PlayerRepository Players;

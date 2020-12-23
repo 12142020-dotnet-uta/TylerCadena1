@@ -1,11 +1,12 @@
 using System.Linq;
 
-using Janken.Runtime.Contexts;
-using Janken.Runtime.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Janken.Runtime.Repositories {
+using Janken.Domain.Models;
+
+namespace Janken.Domain.Repositories {
 	public class PlayerRepository : Repository<Player> {
-		public PlayerRepository(DatabaseContext db) : base(db) {}
+		public PlayerRepository(DbContext db) : base(db) {}
 		public Player GetComputer() {
 			return Db.Set<Player>().Single(p => p.Computer);
 		}

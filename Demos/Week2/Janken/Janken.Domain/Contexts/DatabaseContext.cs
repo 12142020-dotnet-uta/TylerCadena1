@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-using Janken.Runtime.Models;
+using Janken.Domain.Models;
 
-namespace Janken.Runtime.Contexts {
+namespace Janken.Domain.Contexts {
 	public class DatabaseContext : DbContext {
 		private DbSet<Player> Players;
 		private DbSet<Choice> Choices;
