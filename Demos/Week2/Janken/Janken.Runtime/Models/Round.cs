@@ -45,6 +45,9 @@ namespace Janken.Runtime.Models {
 				break;
 			}
 		}
+		/// <summary>
+		/// Checks if round is a draw.
+		/// </summary>
 		public bool IsDraw() {
 			return ChoiceA == ChoiceB;
 		}
