@@ -1,0 +1,24 @@
+version: '3.7'
+
+networks:
+  janken-network:
+
+volumes:
+  janken-volume:
+
+services:
+  janken-service:
+    container_name: 'janken-service'
+    image: 'mcr.microsoft.com/mssql/server:latest'
+    restart: 'always'
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'Password12345'
+    expose:
+      - 1433
+    ports:
+      - '1433:1433'
+    networks:
+      - 'janken-network'
+    volumes:
+      - 'janken-volume'
