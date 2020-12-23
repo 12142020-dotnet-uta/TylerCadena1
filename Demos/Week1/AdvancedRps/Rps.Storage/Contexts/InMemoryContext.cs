@@ -4,9 +4,7 @@ using Rps.Storage.Abstracts;
 
 namespace Rps.Storage.Contexts {
 	public class InMemoryContext : AContext {
-		public InMemoryContext() : base() {}
-		protected override void OnConfiguring(DbContextOptionsBuilder options) {
-			// options.UseInMemoryDatabase("rps-testing");
-		}
+		public InMemoryContext(DbContextOptions options) : base(options) {}
+		protected override void OnModelCreating(ModelBuilder builder) {}
 	}
 }
