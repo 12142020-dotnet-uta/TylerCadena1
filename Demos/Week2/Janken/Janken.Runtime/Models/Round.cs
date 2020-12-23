@@ -51,6 +51,36 @@ namespace Janken.Runtime.Models {
 		public bool IsDraw() {
 			return ChoiceA == ChoiceB;
 		}
+		public string GenerateMessage() {
+			ChoiceType a = ChoiceA.GetChoiceType();
+			ChoiceType b = ChoiceB.GetChoiceType();
+			if (a == ChoiceType.Invalid || b == ChoiceType.Invalid) {
+				return "Round is incomplete!";
+			}
+			if (a == b) {
+				return "It's a draw!";
+			}
+			switch (a) {
+			case ChoiceType.Rock:
+				if (b == ChoiceType.Paper) {
+					return "Paper beats rock!";
+				}
+				return "Rock beats scissors!";
+			case ChoiceType.Paper:
+				if (b == ChoiceType.Rock) {
+					return "Paper beats rock!";
+				}
+				return "Scissors beats paper!";
+			case ChoiceType.Scissors:
+				if (b == ChoiceType.Rock) {
+					return "Rock beats scissors!";
+				}
+				return "Scissors beats paper!";
+			default:
+				break;
+			}
+			return "Something went wrong";
+		}
 		public override Guid GetId() => RoundId;
 	}
 }

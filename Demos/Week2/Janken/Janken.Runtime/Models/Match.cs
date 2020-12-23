@@ -24,22 +24,33 @@ namespace Janken.Runtime.Models {
 			StartTime = DateTime.Now;
 		}
 		/// <summary>
+		/// Returns the tally for a particular player.
+		/// </summary>
+		private int GetTallyFor(Player player) {
+			int result = 0;
+			foreach (var r in Rounds) {
+				if (!r.IsDraw()) {
+					if (r.Winner.PlayerId == player.PlayerId) {
+						++result;
+					}
+				}
+			}
+			return result;
+		}
+		public int GetTallyForA() => GetTallyFor(PlayerA);
+		public int GetTallyForB() => GetTallyFor(PlayerB);
+		/// <summary>
 		/// Finds the winner of the match so far.
 		/// </summary>
 		/// <returns>
 		/// Returns null if no rounds have been played, or if there is a tie.
 		/// </returns>
 		public Player GetWinner() {
-			int playerAWins = 0, playerBWins = 0;
-			foreach (var r in Rounds) {
-				if (!r.IsDraw()) {
-					if (r.Winner.PlayerId == PlayerA.PlayerId) {
-						++playerAWins;
-					} else if (r.Winner.PlayerId == PlayerB.PlayerId) {
-						++playerBWins;
-					}
-				}
+			if (Rounds.Count == 0) {
+				return null;
 			}
+			int playerAWins = GetTallyForA();
+			int playerBWins = GetTallyForB();
 			if (playerAWins == playerBWins) {
 				return null;
 			}
