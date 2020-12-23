@@ -28,7 +28,7 @@ namespace Janken.Runtime.Models {
 			Player[] players = new Player[] {
 				new Player() {
 					PlayerId = Guid.NewGuid(),
-					Handle = "",
+					Handle = "Computer",
 					Password = "",
 					Computer = true
 				}

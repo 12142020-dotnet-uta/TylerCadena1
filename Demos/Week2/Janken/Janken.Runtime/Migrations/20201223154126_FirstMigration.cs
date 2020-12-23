@@ -39,16 +39,16 @@ namespace Janken.Runtime.Migrations
                 columns: new[] { "ChoiceId", "Name", "Value" },
                 values: new object[,]
                 {
-                    { new Guid("2f46b2a9-9119-46a6-8907-38fcca07ab99"), "type", 0 },
-                    { new Guid("1a185093-9699-427c-a507-9d3b97af1d07"), "type", 1 },
-                    { new Guid("95382d2c-feea-41fa-80f1-7b79b6c41293"), "type", 2 },
-                    { new Guid("450996c0-1a06-47e2-b97c-ce99e6774dce"), "type", 3 }
+                    { new Guid("5e739768-8422-4e4b-9eae-f917d417f15c"), "type", 0 },
+                    { new Guid("eedce8ef-9da8-4148-be16-3c905f9d334c"), "type", 1 },
+                    { new Guid("14db97b0-e33d-4704-b474-6c29303a8c9a"), "type", 2 },
+                    { new Guid("96c29708-7bed-4338-9266-22821a38993b"), "type", 3 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Player",
                 columns: new[] { "PlayerId", "Computer", "Handle", "Password" },
-                values: new object[] { new Guid("a05e7a2e-3e97-4b54-bec5-c2aa57512a8b"), true, "", "" });
+                values: new object[] { new Guid("cd62a0b8-1b65-43a2-8cd8-d00088d39d6c"), true, "Computer", "" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

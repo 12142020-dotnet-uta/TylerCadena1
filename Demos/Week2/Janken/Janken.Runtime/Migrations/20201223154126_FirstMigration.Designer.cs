@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Janken.Runtime.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20201223033945_FirstMigration")]
+    [Migration("20201223154126_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,25 +41,25 @@ namespace Janken.Runtime.Migrations
                     b.HasData(
                         new
                         {
-                            ChoiceId = new Guid("2f46b2a9-9119-46a6-8907-38fcca07ab99"),
+                            ChoiceId = new Guid("5e739768-8422-4e4b-9eae-f917d417f15c"),
                             Name = "type",
                             Value = 0
                         },
                         new
                         {
-                            ChoiceId = new Guid("1a185093-9699-427c-a507-9d3b97af1d07"),
+                            ChoiceId = new Guid("eedce8ef-9da8-4148-be16-3c905f9d334c"),
                             Name = "type",
                             Value = 1
                         },
                         new
                         {
-                            ChoiceId = new Guid("95382d2c-feea-41fa-80f1-7b79b6c41293"),
+                            ChoiceId = new Guid("14db97b0-e33d-4704-b474-6c29303a8c9a"),
                             Name = "type",
                             Value = 2
                         },
                         new
                         {
-                            ChoiceId = new Guid("450996c0-1a06-47e2-b97c-ce99e6774dce"),
+                            ChoiceId = new Guid("96c29708-7bed-4338-9266-22821a38993b"),
                             Name = "type",
                             Value = 3
                         });
@@ -89,9 +89,9 @@ namespace Janken.Runtime.Migrations
                     b.HasData(
                         new
                         {
-                            PlayerId = new Guid("a05e7a2e-3e97-4b54-bec5-c2aa57512a8b"),
+                            PlayerId = new Guid("cd62a0b8-1b65-43a2-8cd8-d00088d39d6c"),
                             Computer = true,
-                            Handle = "",
+                            Handle = "Computer",
                             Password = ""
                         });
                 });
